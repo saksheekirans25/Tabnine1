@@ -235,9 +235,7 @@
         <p>&copy; 2022 Italian Restaurant. All rights reserved.</p>
     </footer>
     <script>
-        // JavaScript code for the "script.js" file
-
-// Function to add an item to the cart
+       // Function to add an item to the cart
 function addToCart(itemId) {
     // Get the cart items from local storage
     var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -317,36 +315,12 @@ for (var i = 0; i < addToCartButtons.length; i++) {
     });
 }
 
-        document.getElementById('cart-icon').addEventListener('click', function(event) {
-    event.preventDefault();
-
-    // Display the cart page
-    // For example, you can open a new window or tab that contains the cart page
-
-    // Update the cart count display
-    var cartCountDisplay = document.getElementById('cart-count');
-    var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    var cartCount = cartItems.reduce(function(count, item) {
-        return count + item.quantity;
-    }, 0);
-    cartCountDisplay.textContent = cartCount;
-});
 // Add an event listener to the form
 var orderForm = document.getElementById('order-form');
 orderForm.addEventListener('submit', handleFormSubmit);
-        document.getElementById('search-button').addEventListener('click', function(event) {
-    event.preventDefault();
 
-    var searchInput = document.getElementById('search-input');
-    var searchValue = searchInput.value.toLowerCase();
-
-    // Use the searchValue to filter the items in the menu
-    // For example, you can loop through the menu items and check if they contain the searchValue
-
-    // Clear the search input field
-    searchInput.value = '';
-});
-        function searchItems(searchValue) {
+// Function to search the items
+function searchItems(searchValue) {
     // Get the menu items from the DOM
     var menuItems = document.querySelectorAll('.menu-item');
 
@@ -354,28 +328,11 @@ orderForm.addEventListener('submit', handleFormSubmit);
     var searchResults = document.getElementById('search-results');
     searchResults.innerHTML = '';
 
-    // Loop through the menu items and check if they contain the searchValue
+    // Loop through all the menu items and check if they contain the searchValue
     for (var i = 0; i < menuItems.length; i++) {
         var itemName = menuItems[i].querySelector('h3').textContent;
         if (itemName.toLowerCase().includes(searchValue.toLowerCase())) {
             // Create a new div element to display the search result
-            var searchResult = document.createElement('div');
-            searchResult.classList.add('search-result');
-
-            // Add the item name and price to the search result
-            var itemNameElement = document.createElement('h3');
-            itemNameElement.textContent = itemName;
-            searchResult.appendChild(itemNameElement);
-
-            var itemPriceElement = document.createElement('p');
-            itemPriceElement.textContent = '$' + menuItems[i].querySelector('p').textContent;
-            searchResult.appendChild(itemPriceElement);
-
-            // Add the search result to the search results container
-            searchResults.appendChild(searchResult);
-        }
-    }
-}
     </script>
 </body>
 </html>
