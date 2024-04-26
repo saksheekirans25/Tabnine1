@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italian Restaurant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        document.getElementById('order-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const order = document.getElementById('order').value;
+
+            // Send the order details to your server for processing
+            // Example: fetch('/order', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({
+            //         name,
+            //         email,
+            //         phone,
+            //         address,
+            //         order
+            //     })
+            // })
+            // .then(response => response.json())
+            // .then(data => console.log(data))
+            // .catch(error => console.error(error));
+
+            // Display a success message
+            const successMessage = document.createElement('p');
+            successMessage.textContent = 'Thank you for your order! We will contact you shortly.';
+            document.getElementById('order-form').appendChild(successMessage);
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li>Pizza Margherita - $12.99</li>
+                <li>Spaghetti Carbonara - $14.99</li>
+                <li>Lasagna - $16.99</li>
+                <!-- Add more menu items here -->
+            </ul>
+        </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Welcome to our Italian restaurant! We serve authentic Italian cuisine made with fresh ingredients and traditional recipes.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="order-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+                <label for="order">Order:</label>
+                <textarea id="order" name="order" required></textarea>
+                <button type="submit">Place Order</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2022 Italian Restaurant. All rights reserved.</p>
+    </footer>
+</body>
+</html>
